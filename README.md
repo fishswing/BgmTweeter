@@ -47,7 +47,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 如果你不懂得如何配置服务器的cron任务，或者烦于申请app，  
 可按照以下配置为RSS输出，并且配合ifttt来达到自动发布的目的。
 
-1. 在config.php中配置好用户名、RSS类别、标题、节目名样式等信息；
+1. 在`config.php`中配置好用户名、RSS类别、标题、节目名样式等信息；
 2. 将所有文件上传到php服务器；
 3. RSS的地址即为 `http://<your_domain>/bgmtweeter/`
 
@@ -57,14 +57,14 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 使用cron定时触发可以减少服务器压力，尤其是配置了多处RSS检查的情况下。  
 这种情况下爬虫访问的是静态的xml页面，不会每次强制刷新。
 
-1. 在config.php中配置好用户名、RSS类别、标题、节目名样式等信息；
+1. 在`config.php`中配置好用户名、RSS类别、标题、节目名样式等信息；
 2. 你可以修改`$rss_filename`为自己喜欢的xml文件名，默认为`rss.xml`；
-3. 在cron.php中加入首页的完整url：`http://<your_domain>/bgmtweeter/index.php`
+3. 在`cron.php`中加入首页的完整url：`http://<your_domain>/bgmtweeter/index.php`
 4. 将所有文件上传到php服务器；
 5. 在服务器配置面板新建一个cron任务，推荐将其执行频率调整为10分钟左右：  
-   > php /home/<your_domain_files_path>/bgmtweeter/cron.php >/dev/null 2>&1
-   其中`<your_domain_files_path>`是后台管理文件的linux文件系统路径；
-6. 先手工访问测试一下rss.xml是否生成：`http://<your_domain>/bgmtweeter/`
+   `php /home/<your_domain_files_path>/bgmtweeter/cron.php >/dev/null 2>&1`  
+   其中`<your_domain_files_path>`是后台管理文件的linux文件系统路径；  
+6. 先手工访问测试一下rss.xml是否生成：`http://<your_domain>/bgmtweeter/`  
 7. RSS的地址即为 `http://<your_domain>/bgmtweeter/rss.xml`
 
 
@@ -76,7 +76,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 1) 到微博开放平台(http://open.weibo.com/development)点击“创建应用”，然后选“网页应用”；  
 2) 将“应用地址”设置为`http://<your_domain>/bgmtweeter/weibo/`，填好其它相关信息，点“创建”；  
 3) 创建成功后，在“高级信息”将“授权回调页”和“取消授权回调页”设置为  
-   > http://<your_domain>/bgmtweeter/weibo/callback.php
+   `http://<your_domain>/bgmtweeter/weibo/callback.php`  
    然后记录下App-Key和App-Secret；  
 4) 在`weibo/config.php`填入`App-Key`，`App-Secret`和`回调页地址(Callback URL)`；  
 5) 在根目录的config.php中将`$weibo_enabled`设为`true`，并设置好`$weibo_pattern`；  
@@ -85,7 +85,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 1b.如需要发布Twitter，请先到Twitter创建一个app，方法为：  
 1) 到Twitter Developers页面(https://apps.twitter.com/)点击“Create New App”；  
 2) 填写相关信息，并将“Callback URL”设置为  
-   > http://<your_domain>/bgmtweeter/twitter/callback.php  
+   `http://<your_domain>/bgmtweeter/twitter/callback.php`  
 3) 创建成功后，会进入Application页面，点击“Permissions”选项卡；  
 4) 将“Access”选择为“Read and Write”，然后点底部的“Update Settings”；  
 5) 点击“Keys and Access Tokens”选项卡，记录Consumer Key和Consumer Secret，填入`twitter/config.php`；  
@@ -112,9 +112,9 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 ### 更新日志 ###
 
 ##### 2015-02-21 v1.2 #####
-1.propbgmrss现在改名为BgmTweeter；
-2.发布和RSS生成现在分离成两个独立的功能；
-3.RSS标题可自定义，番组名字可以自定义中英文样式；
+1.propbgmrss现在改名为BgmTweeter；  
+2.发布和RSS生成现在分离成两个独立的功能；  
+3.RSS标题可自定义，番组名字可以自定义中英文样式；  
 4.代码优化。
 
 ##### 2013-07-07 v1.1a #####
@@ -130,22 +130,22 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 1.增加自动截断功能，防止字数超出140字限制导致发送失败。
 
 ##### 2012-11-14 v1.0 #####
-1.改进新浪微博授权页的显示方式，提示有效期；
-2.修正总话数为??的番组在某些情况下不能更新feed的问题；
+1.改进新浪微博授权页的显示方式，提示有效期；  
+2.修正总话数为??的番组在某些情况下不能更新feed的问题；  
 3.修正新浪SDK的一处缺陷导致未开启短标签的服务器无法授权的问题。
 
 ##### 2012-09-03 v0.9 #####
-1.修正因Bangumi网站微调造成番组中文名无法显示的问题；
-2.升级到新浪微博OAuth V2端口；
-3.针对新浪微博V2端口的机制进行优化，允许原用户更新授权，提示有效期；
+1.修正因Bangumi网站微调造成番组中文名无法显示的问题；  
+2.升级到新浪微博OAuth V2端口；  
+3.针对新浪微博V2端口的机制进行优化，允许原用户更新授权，提示有效期；  
 4.增加授权页显示当前运行状态。
 
 ##### 2012-06-10 v0.8 #####
-1.增加Twitter自动发布功能；
-2.增加了oauth文件检查，文件已存在时禁止授权操作以防止被他人冒用；
-3.修改OAuth库代码解决多微博冲突问题；
-4.新增了两个微博发布pattern支持的字段；
-5.微调番组中文名显示样式；
+1.增加Twitter自动发布功能；  
+2.增加了oauth文件检查，文件已存在时禁止授权操作以防止被他人冒用；  
+3.修改OAuth库代码解决多微博冲突问题；  
+4.新增了两个微博发布pattern支持的字段；  
+5.微调番组中文名显示样式；  
 6.代码精简优化。
 
 ##### 2012-06-02 v0.7 #####
@@ -158,9 +158,9 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 1.增加新浪微博自动发布功能。
 
 ##### 2012-04-03 v0.3 #####
-第一个发布版本
-1.去除冗余循环检查；
-2.修正书籍进度不能显示的问题；
+第一个发布版本  
+1.去除冗余循环检查；  
+2.修正书籍进度不能显示的问题；  
 3.修正进度标题过长导致截断的问题。
 
 ##### 2012-03-31 v0.2 #####
