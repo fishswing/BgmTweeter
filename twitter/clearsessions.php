@@ -1,5 +1,9 @@
 <?php
 /**
+ * BgmTweeter - Twitter OAuth Clean
+ */
+
+/**
  * @file
  * Clears PHP sessions and redirects to the connect page.
  */

@@ -15,10 +15,10 @@ https://github.com/fishswing/BgmTweeter
 
 --
 
-该项目的feed生成模块使用了feedcreator库（版本1.8）并对其进行了一些修改，  
-该库文件保持LGPL协议进行授权，其源代码和授权文本的副本位于feedcreator目录下。  
+该项目的Twitter发布模块使用了abraham的twitteroauth(版本0.5.1)。  
 该项目的新浪微博发布模块使用了新浪微博开放平台的官方PHP SDK并对其进行了一些修改。  
-该项目的Twitter发布模块使用了abraham的twitteroauth库并对其进行了一些修改。  
+该项目的feed生成模块使用了feedcreator（版本1.8）并对其进行了一些修改。  
+以上库文件保持各自协议进行授权，其授权文本的副本位于相应的目录下。  
 该项目抓取和处理的信息由Bangumi番组计划(bgm.tv)提供，其权利属于各自的版权方和用户。  
 项目的其余代码采用MIT License进行授权，其授权文本位于根目录下的LICENSE.txt。  
 
@@ -29,11 +29,12 @@ https://github.com/fishswing/BgmTweeter
 ### 升级说明 ###
 
 #### 【v1.1a升级到v1.2说明】 ####
-1. 请首先备份config.php和cron.php；
-2. 将所有文件上传覆盖；
-3. 对照备份下来的config.php配置新的config.php；
-4. 将备份下来的cron.php覆盖回去；
-5. 最后将titlecache.id删除。
+1. 请首先备份`config.php`和`cron.php`；
+2. 删除`twitter/twitteroauth`下（非twitter目录）的所有文件；
+3. 将所有文件上传覆盖；
+4. 对照备份下来的旧`config.php`配置新的`config.php`；
+5. 将备份下来的`cron.php`覆盖回去；
+6. 最后将`titlecache.id`删除。
 
 --
 
@@ -41,6 +42,7 @@ https://github.com/fishswing/BgmTweeter
 
 BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
   
+
 
 #### 【如何部署为RSS输出】 ####
 
@@ -51,6 +53,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 2. 将所有文件上传到php服务器；
 3. RSS的地址即为 `http://<your_domain>/bgmtweeter/`
   
+
 
 #### 【如何部署为RSS输出，并且使用cron】 ####
 
@@ -67,6 +70,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 6. 先手工访问测试一下rss.xml是否生成：`http://<your_domain>/bgmtweeter/`
 7. RSS的地址即为 `http://<your_domain>/bgmtweeter/rss.xml`
   
+
 
 #### 【如何自动发布Twitter和微博】 ####
 
@@ -92,11 +96,10 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 6) 在根目录的config.php中将`$twitter_enabled`设为`true`，并设置好`$twitter_pattern`。
 
 3. 完成上节“如何部署为RSS输出，并且使用cron”的第1步到第4步；
-
 4. 如配置了微博功能，请访问 `http://<your_domain>/bgmtweeter/weibo/` 完成授权；  
    如配置了Twitter功能，请访问 `http://<your_domain>/bgmtweeter/twitter/` 完成授权；
-
 5. 完成上节“如何部署为RSS输出，并且使用cron”的剩余步骤。
+  
   
 
 #### 【如何同时生成和发布不同种类的feed】 ####
@@ -113,9 +116,10 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 
 ##### 2015-02-21 v1.2 #####
 1.propbgmrss现在改名为BgmTweeter；  
-2.发布和RSS生成现在分离成两个独立的功能；  
-3.RSS标题可自定义，番组名字可以自定义中英文样式；  
-4.代码优化。
+2.更新twitteroauth，支持最新的Twitter API v1.1；
+3.发布和RSS生成现在分离成两个独立的功能；  
+4.RSS标题可自定义，番组名字可以自定义中日文样式；  
+5.代码优化。
 
 ##### 2013-07-07 v1.1a #####
 1.修正番组话数为.5时显示错位的问题。  

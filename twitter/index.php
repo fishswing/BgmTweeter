@@ -12,6 +12,11 @@
  * BgmTweeter - Twitter OAuth
  */
 
+require_once('twitteroauth/autoload.php');
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+//ini_set('display_errors', '1');
+
 if (!file_exists('config.php')) {
 ?>
 	<p><strong>无法找到配置文件 config.php</strong></p>
@@ -25,7 +30,6 @@ else {
 
 session_start();
 require_once('config.php');
-require_once('twitteroauth/twitteroauth.php');
 
 if (file_exists('twitter.oauth')) {
 ?>
@@ -54,18 +58,18 @@ else {
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 
 	/* Get temporary credentials. */
-	$request_token = $connection->getRequestToken(OAUTH_CALLBACK);
+	$request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => OAUTH_CALLBACK));
 
 	/* Save temporary credentials to session. */
 	$_SESSION['oauth_token'] = $token = $request_token['oauth_token'];
 	$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
 
 	/* If last connection failed don't display authorization link. */
-	switch ($connection->http_code) {
+	switch ($connection->getLastHttpCode()) {
 	  case 200:
 		/* Build authorize URL and redirect user to Twitter. */
-		$url = $connection->getAuthorizeURL($token);
-		echo '<p><a href="'.$url.'"><img src="lighter.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a></p>';
+		$url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+		echo '<p><a href="'.$url.'"><img src="sign-in-with-twitter-gray.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a></p>';
 		break;
 	  default:
 		/* Show notification if something went wrong. */

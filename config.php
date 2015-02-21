@@ -102,5 +102,3 @@ $rss_filename = 'rss.xml';
  * NOTE: Do not modify if you don't know what it is!
  */
 $rss_redirect = true;
-
-?>

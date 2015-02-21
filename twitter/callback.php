@@ -4,8 +4,9 @@
  */
 
 session_start();
-require_once('twitteroauth/twitteroauth.php');
+require_once('twitteroauth/autoload.php');
 require_once('config.php');
+use Abraham\TwitterOAuth\TwitterOAuth;
 
 /* If the oauth_token is old redirect to the connect page. */
 if (isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] !== $_REQUEST['oauth_token']) {
@@ -17,7 +18,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] !== $_REQUEST['o
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 
 /* Request access tokens from twitter */
-$access_token = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+$access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
 /* Save the access tokens. Normally these would be saved in a database for future use. */
 //$_SESSION['access_token'] = $access_token;
@@ -36,7 +37,7 @@ unset($_SESSION['oauth_token_secret']);
 <body>
 
 <?php
-if ($access_token && 200 == $connection->http_code) {
+if ($access_token && 200 == $connection->getLastHttpCode()) {
 	@file_put_contents('twitter.oauth', json_encode($access_token));
 	echo '<p>授权完成。现在您可以关闭本页面。</p>';
 }

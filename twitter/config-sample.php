@@ -17,4 +17,3 @@
 define('CONSUMER_KEY', 'CONSUMER_KEY_HERE');
 define('CONSUMER_SECRET', 'CONSUMER_SECRET_HERE');
 define('OAUTH_CALLBACK', 'http://<your_domain>/bgmtweeter/twitter/callback.php');
-?>
