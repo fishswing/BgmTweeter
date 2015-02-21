@@ -1,16 +1,14 @@
 <?php
 /**
  * BgmTweeter - Twitter Sender
- *
- * Code by Fishswing <me@swingworks.net>
- * http://www.swingworks.net
  */
 
 /*
  * This file must be included by its upper directory
  */
-require_once( 'twitter/config.php' );
-require_once( 'twitter/twitteroauth/twitteroauth.php' );
+require_once('twitter/config.php');
+require_once('twitter/twitteroauth/autoload.php');
+use Abraham\TwitterOAuth\TwitterOAuth;
 
 function sendtwitter($item, $id_name)
 {
@@ -56,7 +54,8 @@ function sendtwitter($item, $id_name)
 		@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 		// $content = $connection->get('account/verify_credentials');
 		@ $response = $connection->post('statuses/update', array('status' => $pattern));
-		if ($connection->http_code == '200' || $connection->http_code == '304') {
+		$http_code = $connection->getLastHttpCode();
+		if ($http_code == '200' || $http_code == '304') {
 			file_put_contents($idfile_name, $timestamp . "\n$date\ntwitter ok");
 		}
 		else {

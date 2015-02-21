@@ -22,4 +22,3 @@ $weibo_callback_url = 'http://<yourdomain>/bgmtweeter/weibo/callback.php';
 define( "WB_AKEY" , $weibo_app_key );
 define( "WB_SKEY" , $weibo_app_secret );
 define( "WB_CALLBACK_URL" , $weibo_callback_url );
-?>
