@@ -14,7 +14,7 @@
 */
 
 $urls = array(
-//'http://<your_domain>/bgmtweeter/index.php'
+'http://<your_domain>/bgmtweeter/index.php'
 //,'http://<your_domain>/bgmtweeter/another_one_if_needed_here.php'
 );
 
