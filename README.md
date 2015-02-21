@@ -1,6 +1,5 @@
-## BgmTweeter v1.2 (aka propbgmrss)
-by fishswing 2015-02-21  
-http://www.swingworks.net
+## BgmTweeter v1.2  (aka propbgmrss) ##
+fishswing 2015-02-21  http://www.swingworks.net
 
 BgmTweeter是一个Bangumi的Twitter和微博同步工具，  
 同时是一个改进版的Bangumi RSS输出，基于PHP 5以上且支持curl的主机运行。
@@ -30,11 +29,11 @@ https://github.com/fishswing/BgmTweeter
 ### 升级说明 ###
 
 #### 【v1.1a升级到v1.2说明】 ####
-1) 请首先备份config.php和cron.php，  
-2) 将所有文件上传覆盖，  
-3) 对照备份下来的config.php配置新的config.php，  
-4) 将备份下来的cron.php覆盖回去，  
-5) 最后将titlecache.id删除。
+1. 请首先备份config.php和cron.php；
+2. 将所有文件上传覆盖；
+3. 对照备份下来的config.php配置新的config.php；
+4. 将备份下来的cron.php覆盖回去；
+5. 最后将titlecache.id删除。
 
 --
 
@@ -73,7 +72,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 自动发布Twitter和微博需要配置好cron，而且需要申请一个app用于个人发布。
 
 1a.如需要发布微博，请先到新浪创建一个app，方法为：  
-1) 到微博开放平台(http://open.weibo.com/development)点击“创建应用”，然后选“网页应用”；  
+1) 到微博开放平台 (http://open.weibo.com/development) 点击“创建应用”，然后选“网页应用”；  
 2) 将“应用地址”设置为`http://<your_domain>/bgmtweeter/weibo/`，填好其它相关信息，点“创建”；  
 3) 创建成功后，在“高级信息”将“授权回调页”和“取消授权回调页”设置为  
    `http://<your_domain>/bgmtweeter/weibo/callback.php`  
@@ -83,7 +82,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 6) 由于微博API的限制，在任何时候（包括今后）都请勿将app提交审核！  
 
 1b.如需要发布Twitter，请先到Twitter创建一个app，方法为：  
-1) 到Twitter Developers页面(https://apps.twitter.com/)点击“Create New App”；  
+1) 到Twitter Developers页面 (https://apps.twitter.com/) 点击“Create New App”；  
 2) 填写相关信息，并将“Callback URL”设置为  
    `http://<your_domain>/bgmtweeter/twitter/callback.php`  
 3) 创建成功后，会进入Application页面，点击“Permissions”选项卡；  
