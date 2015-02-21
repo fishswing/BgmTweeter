@@ -16,12 +16,12 @@ https://github.com/fishswing/BgmTweeter
 
 --
 
-该项目的feed生成模块使用了feedcreator库（版本1.8）并对其进行了一些修改，
-该库文件保持LGPL协议进行授权，其源代码和授权文本的副本位于feedcreator目录下。
-该项目的新浪微博发布模块使用了新浪微博开放平台的官方PHP SDK并对其进行了一些修改。
-该项目的Twitter发布模块使用了abraham的twitteroauth库并对其进行了一些修改。
-该项目抓取和处理的信息由Bangumi番组计划(bgm.tv)提供，其权利属于各自的版权方和用户。
-项目的其余代码采用MIT License进行授权，其授权文本位于根目录下的LICENSE.txt。
+该项目的feed生成模块使用了feedcreator库（版本1.8）并对其进行了一些修改，  
+该库文件保持LGPL协议进行授权，其源代码和授权文本的副本位于feedcreator目录下。  
+该项目的新浪微博发布模块使用了新浪微博开放平台的官方PHP SDK并对其进行了一些修改。  
+该项目的Twitter发布模块使用了abraham的twitteroauth库并对其进行了一些修改。  
+该项目抓取和处理的信息由Bangumi番组计划(bgm.tv)提供，其权利属于各自的版权方和用户。  
+项目的其余代码采用MIT License进行授权，其授权文本位于根目录下的LICENSE.txt。  
 
 使用本项目即代表您默认遵守所有相应的协议。
 
