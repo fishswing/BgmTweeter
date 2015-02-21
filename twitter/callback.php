@@ -1,7 +1,6 @@
 <?php
 /**
- * Properer Bangumi RSS - Twitter OAuth Callback
- * Code by Fishswing <me@swingworks.net>
+ * BgmTweeter - Twitter OAuth Callback
  */
 
 session_start();
@@ -32,7 +31,7 @@ unset($_SESSION['oauth_token_secret']);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>OAuth - Properer Bangumi RSS</title>
+<title>Twitter OAuth - BgmTweeter</title>
 </head>
 <body>
 

@@ -2,16 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>OAuth - Properer Bangumi RSS</title>
+<title>Twitter OAuth - BgmTweeter</title>
 </head>
 
 <body>
 
 <?php
 /**
- * Properer Bangumi RSS - Twitter OAuth
- * Code by Fishswing <me@swingworks.net>
+ * BgmTweeter - Twitter OAuth
  */
+
+if (!file_exists('config.php')) {
+?>
+	<p><strong>无法找到配置文件 config.php</strong></p>
+	<p>
+		请将 twitter/config-sample.php 重命名为 config.php ，<br />
+		填入正确的应用配置信息，然后<a href="./">刷新本页面</a>。
+	</p>
+<?php
+}
+else {
 
 session_start();
 require_once('config.php');
@@ -20,10 +30,10 @@ require_once('twitteroauth/twitteroauth.php');
 if (file_exists('twitter.oauth')) {
 ?>
 	<!-- 授权文件存在 -->
-	<p><strong>检测到 Twitter 已被授权</strong></h3>
+	<p><strong>检测到 Twitter 已被授权</strong></p>
 	<p>
-		propbgmrss 是一个单用户项目。要供多用户使用，请部署多个 propbgmrss 。<br />
-		如需重新授权，请先删除 twitter 目录下的 twitter.oauth 文件，然后<a href="./">刷新本页面</a>。
+		BgmTweeter 是一个单用户项目。要供多用户使用，请部署多个 BgmTweeter 。<br />
+		如需重新授权，请先手工删除文件 twitter/twitter.oauth ，然后<a href="./">刷新本页面</a>。
 	</p>
 	<p>--</p>
 	<p>
@@ -42,10 +52,10 @@ if (file_exists('twitter.oauth')) {
 else {
 	/* Build TwitterOAuth object with client credentials. */
 	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
-	
+
 	/* Get temporary credentials. */
 	$request_token = $connection->getRequestToken(OAUTH_CALLBACK);
-	
+
 	/* Save temporary credentials to session. */
 	$_SESSION['oauth_token'] = $token = $request_token['oauth_token'];
 	$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
@@ -62,6 +72,8 @@ else {
 		echo '<p>连接到 Twitter 时遇到问题。请<a href="./">刷新</a>或过一会再试。</p>';
 	}
 	echo '<p>如果授权过程中反复遇到问题，可尝试<a href="clearsessions.php">刷新页面缓存</a>。</p>';
+}
+
 }
 ?>
 </body>

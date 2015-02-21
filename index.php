@@ -1,26 +1,30 @@
 <?php
 /**
- * Properer Bangumi RSS - Caller
- * Code by Fishswing <me@swingworks.net>
+ * BgmTweeter v1.2 (aka propbgmrss)
+ *
+ * Author: Fishswing <me@swingworks.net>
+ * http://www.swingworks.net
  */
- 
+
 require_once("getmyrss.php");
 require_once("weibo/sendweibo.php");
 require_once("twitter/sendtwitter.php");
 
 /**
- * NOTICE:		Please make sure that there is ONLY ONE SINGLE CALL in a caller file!
- *				If you wanna generate feeds for both "progress" and "subject",
- *				copy "config.php & index.php" into "config2.php & index2.php" and do
- *				pair modifications.
+ * NOTICE:
+ * If you wanna setup for both "progress" and "subject",
+ * copy "config.php & index.php" out to "config2.php & index2.php"
+ * and setup them separately.
+ *
+ * In this file you only need to change this file name accordingly:
  */
-
 require_once("config.php");
 
+// Make sure there is ONLY ONE SINGLE CALL in one caller file!
 if ($is_enabled) {
 	// generate feed
 	$item = getmyrss();
-	
+
 	// send weibo/twitter
 	if ($weibo_enabled || $twitter_enabled) {
 		// get caller.php name (eg.: index)
