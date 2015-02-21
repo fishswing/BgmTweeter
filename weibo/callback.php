@@ -1,7 +1,6 @@
 <?php
 /**
- * Properer Bangumi RSS - Sina Weibo OAuthV2 Callback
- * Code by Fishswing <me@swingworks.net>
+ * BgmTweeter - Weibo OAuthV2 Callback
  */
 
 session_start();
@@ -25,7 +24,7 @@ if (isset($_REQUEST['code'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>新浪微博授权 - Properer Bangumi RSS</title>
+<title>新浪微博授权 - BgmTweeter</title>
 </head>
 <body>
 
@@ -38,8 +37,8 @@ if ($cur_key) {
 ?>
 			<p><strong>检测到授权用户不一致，授权被禁止</strong></p>
 			<p>
-				propbgmrss 是一个单用户项目。要供多用户使用，请部署多个 propbgmrss 。<br />
-				如需为其他用户授权，请先删除 weibo 目录下的 weibo.oauth 文件，然后<a href="index.php">重新授权</a>。
+				BgmTweeter 是一个单用户项目。要供多用户使用，请部署多个 BgmTweeter 。<br />
+				如需为其他用户授权，请先手工删除文件 weibo/weibo.oauth ，然后<a href="index.php">重新授权</a>。
 			</p>
 <?php
 			$banned = true;
@@ -55,8 +54,8 @@ if ($cur_key) {
 		$hour = floor(($t-$day*86400)/3600);
 		$min = floor(($t-$day*86400-$hour*3600)/60);
 		$sec = $t-$day*86400-$hour*3600-$min*60;
-		echo '<p>微博OAuth剩余有效期：'.(($day>0)?"${day}天":'')."${hour}小时${min}分${sec}秒<br />。";
-		echo '请在有效期内及时更新授权。</p>';
+		echo '<p>微博OAuth剩余有效期：'.(($day>0)?"${day}天":'')."${hour}小时${min}分${sec}秒。<br />";
+		echo '由于微博API限制，请在到期前及时更新授权。</p>';
 	}
 }
 else {
