@@ -1,4 +1,4 @@
-BgmTweeter v1.2 (aka propbgmrss)
+##BgmTweeter v1.2 (aka propbgmrss)
 fishswing <me@swingworks.net> 2015-02-21
 http://www.swingworks.net
 
@@ -27,9 +27,9 @@ https://github.com/fishswing/BgmTweeter
 
 --
 
-升级说明：
+##升级说明：
 
-【v1.1a升级到v1.2说明】
+###【v1.1a升级到v1.2说明】
 1) 请首先备份config.php和cron.php，
 2) 将所有文件上传覆盖，
 3) 对照备份下来的config.php配置新的config.php，
@@ -38,11 +38,11 @@ https://github.com/fishswing/BgmTweeter
 
 --
 
-使用说明：
+##使用说明：
 
 BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 
-【如何部署为RSS输出】
+###【如何部署为RSS输出】
 
 如果你不懂得如何配置服务器的cron任务，或者烦于申请app，
 可按照以下配置为RSS输出，并且配合ifttt来达到自动发布的目的。
@@ -52,7 +52,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 3. RSS的地址即为 http://<your_domain>/bgmtweeter/
 
 
-【如何部署为RSS输出，并且使用cron】
+###【如何部署为RSS输出，并且使用cron】
 
 使用cron定时触发可以减少服务器压力，尤其是配置了多处RSS检查的情况下。
 这种情况下爬虫访问的是静态的xml页面，不会每次强制刷新。
@@ -68,7 +68,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 7. RSS的地址即为 http://<your_domain>/bgmtweeter/rss.xml
 
 
-【如何自动发布Twitter和微博】
+###【如何自动发布Twitter和微博】
 
 自动发布Twitter和微博需要配置好cron，而且需要申请一个app用于个人发布。
 
@@ -99,7 +99,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 4. 完成上节“如何部署为RSS输出，并且使用cron”的剩余步骤。
 
 
-【如何同时生成和发布不同种类的feed】
+###【如何同时生成和发布不同种类的feed】
 
 由于feedcreator库的限制，如果你需要同时生成多个feed（如进度和收藏各一个），
 请拷贝index.php和config.php为index2.php和config2.php，
@@ -109,7 +109,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 
 --
 
-更新日志：
+##更新日志：
 
 2015-02-21 v1.2
 1.propbgmrss现在改名为BgmTweeter；
