@@ -71,7 +71,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 
 自动发布Twitter和微博需要配置好cron，而且需要申请一个app用于个人发布。
 
-1a.如需要发布微博，请先到新浪创建一个app，方法为：  
+1. 如需要发布微博，请先到新浪创建一个app，方法为：  
 1) 到微博开放平台 (http://open.weibo.com/development) 点击“创建应用”，然后选“网页应用”；  
 2) 将“应用地址”设置为`http://<your_domain>/bgmtweeter/weibo/`，填好其它相关信息，点“创建”；  
 3) 创建成功后，在“高级信息”将“授权回调页”和“取消授权回调页”设置为  
@@ -81,7 +81,7 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 5) 在根目录的config.php中将`$weibo_enabled`设为`true`，并设置好`$weibo_pattern`；  
 6) 由于微博API的限制，在任何时候（包括今后）都请勿将app提交审核！  
 
-1b.如需要发布Twitter，请先到Twitter创建一个app，方法为：  
+2. 如需要发布Twitter，请先到Twitter创建一个app，方法为：  
 1) 到Twitter Developers页面 (https://apps.twitter.com/) 点击“Create New App”；  
 2) 填写相关信息，并将“Callback URL”设置为  
    `http://<your_domain>/bgmtweeter/twitter/callback.php`  
@@ -90,12 +90,12 @@ BgmTweeter可以部署为自动发布工具，也可以作为RSS输出。
 5) 点击“Keys and Access Tokens”选项卡，记录Consumer Key和Consumer Secret，填入`twitter/config.php`；  
 6) 在根目录的config.php中将`$twitter_enabled`设为`true`，并设置好`$twitter_pattern`。
 
-2. 完成上节“如何部署为RSS输出，并且使用cron”的第1步到第4步；
+3. 完成上节“如何部署为RSS输出，并且使用cron”的第1步到第4步；
 
-3. 如配置了微博功能，请访问 `http://<your_domain>/bgmtweeter/weibo/` 完成授权；  
+4. 如配置了微博功能，请访问 `http://<your_domain>/bgmtweeter/weibo/` 完成授权；  
    如配置了Twitter功能，请访问 `http://<your_domain>/bgmtweeter/twitter/` 完成授权；
 
-4. 完成上节“如何部署为RSS输出，并且使用cron”的剩余步骤。
+5. 完成上节“如何部署为RSS输出，并且使用cron”的剩余步骤。
 
 
 #### 【如何同时生成和发布不同种类的feed】 ####
