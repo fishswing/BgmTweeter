@@ -7,6 +7,10 @@ BgmTweeter是一个Bangumi的Twitter和微博同步工具，
 目前Bangumi原生RSS功能的效果很差，  
 利用该项目可以输出一个可读性更好的RSS，同时自动发布到Twitter或微博上。
 
+RSS输出示例：samples/rss_subject.xml，samples/rss_progress.xml  
+微博发布示例：http://s.weibo.com/wb/魚尾の補番計画&nodup=1
+Twitter发布示例：https://twitter.com/search?q=鱼尾de补番计画
+
 详细介绍请点击：  
 http://www.swingworks.net/2012/04/propbgmrss/
 
